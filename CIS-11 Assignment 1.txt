@@ -13,3 +13,7 @@
 	iadd ebx
 	mov X,eax
 	
+
+1.2.1 Section Review, Questions 2, 3, 10
+
+2. 
