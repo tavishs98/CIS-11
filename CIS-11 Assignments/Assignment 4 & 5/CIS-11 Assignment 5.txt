@@ -1,0 +1,32 @@
+;4.10 Programming Exercises, Question 7 (64 bit)
+ExitProcess proto
+
+.data
+source BYTE "This is the source string",0
+target BYTE SIZEOF source DUP('#')
+
+.code
+
+main proc
+
+	;initialize rcx SIZEOF source
+	MOV rcx, SIZEOF source
+	;initialize pointer to first character of target
+	MOV rbx,0
+
+MYLOOP:
+	;copy current character in source to current character in target
+	MOV rdx, QWORD PTR source[rcx - 1]
+	;mov that character to current character in target
+	MOV QWORD PTR [target + rbx], rdx
+	;increment target pointer
+	INC rbx
+	;decrement source pointer
+	DEC rax
+
+LOOP MYLOOP
+
+
+call ExitProcess
+main endp
+end
